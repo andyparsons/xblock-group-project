@@ -28,7 +28,7 @@ log = logging.getLogger(__name__)
 
 class GroupProjectBlock(XBlock):
     """
-    XBlock providing a video player for videos hosted on Brightcove
+    XBlock providing a group activity project for a group of students to collaborate upon
     """
     display_name = String(
         display_name="Display Name",
@@ -45,7 +45,7 @@ class GroupProjectBlock(XBlock):
     )
 
     data = String(
-        display_name="Drag and Drop",
+        display_name="",
         help="XML contents to display for this module",
         scope=Scope.content,
         default=textwrap.dedent("""

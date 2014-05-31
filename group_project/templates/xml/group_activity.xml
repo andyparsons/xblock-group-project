@@ -1,0 +1,24 @@
+<project>
+  <resources>
+    {% for document in documents %}
+      <document grading_criteria='{{document["grading_criteria"]}}' description='{{document.["description"]}}' title='{{document["title"]}}'>
+        {{ document.location }}
+      </document>
+    {% endfor %}
+  </resources>
+  <dates>
+    {% for milestone in milestones %}
+      <milestone name='{{milestone["name"]}}'>
+        {{ milestone["mmddyy"] }}
+      </milestone>
+    {% endfor %}
+  </dates>
+  <submissions>
+    {% for document in group_activity.submissions %}
+      <document description='{{document.["description"]}}' title='{{document["title"]}}'></document>
+    {% endfor %}
+  </submissions>
+  {% for component in group_activity.activity_components %}
+    {% include 'project_component.xml' with project_component=component %}
+  {% endfor %}
+</project>
